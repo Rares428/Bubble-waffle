@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choco Kebab & Bubble Waffles — Ploiești</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1E2;
+    --cream-card:#FFF9EE;
+    --dark:#2B1810;
+    --dark-2:#3E2417;
+    --caramel:#C6874A;
+    --caramel-deep:#A8672F;
+    --rasp:#D6455B;
+    --rasp-deep:#B72F45;
+    --pistachio:#8FA876;
+    --line: rgba(43,24,16,0.12);
+    --shadow: 0 10px 24px rgba(43,24,16,0.16);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --cream:#211410;
+      --cream-card:#2B1B14;
+      --dark:#F7ECDF;
+      --dark-2:#F0DFC9;
+      --line: rgba(247,236,223,0.14);
+      --shadow: 0 10px 24px rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#211410;
+    --cream-card:#2B1B14;
+    --dark:#F7ECDF;
+    --dark-2:#F0DFC9;
+    --line: rgba(247,236,223,0.14);
+    --shadow: 0 10px 24px rgba(0,0,0,0.45);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--dark);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2', 'Inter', sans-serif;
+    font-weight:700;
+    margin:0;
+    color:var(--dark);
+  }
+  a{color:inherit;}
+  img{max-width:100%;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .scrollx{overflow-x:auto;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:1080px; margin:0 auto;
+  }
+  .brandmark{display:flex; align-items:center; gap:10px;}
+  .brandmark .bubbles{width:34px; height:34px; flex:none;}
+  .brandmark span{font-family:'Baloo 2'; font-weight:700; font-size:1.05rem; letter-spacing:.2px;}
+  nav.links{display:flex; gap:22px; font-size:.92rem; font-weight:600;}
+  nav.links a{text-decoration:none; opacity:.82; transition:opacity .15s;}
+  nav.links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--rasp); color:#fff; border:none; border-radius:999px;
+    padding:9px 18px; font-weight:700; font-size:.88rem; cursor:pointer;
+    font-family:'Inter';
+  }
+  @media (max-width:720px){ nav.links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--dark);
+    color:#F7ECDF;
+    overflow:hidden;
+    padding:64px 0 0;
+  }
+  .hero-bubbles{
+    position:absolute; inset:0; opacity:.5; pointer-events:none;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    max-width:1080px; margin:0 auto; padding:0 24px 64px;
+    display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center;
+  }
+  .eyebrow-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(247,236,223,0.1); border:1px solid rgba(247,236,223,0.25);
+    padding:6px 14px 6px 8px; border-radius:999px; font-size:.82rem; font-weight:600;
+    color:#F0DFC9; margin-bottom:22px;
+  }
+  .eyebrow-tag .dot{width:8px;height:8px;border-radius:50%;background:#8FE398;display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.3rem, 5.4vw, 3.6rem);
+    line-height:1.06;
+    color:#FBF1E2;
+    max-width:12ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--rasp);
+    -webkit-text-stroke: 0px;
+  }
+  .hero p.lead{
+    margin-top:20px; font-size:1.08rem; line-height:1.6;
+    color:#E4D3BF; max-width:46ch;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--rasp); color:#fff; border:none; border-radius:14px;
+    padding:15px 26px; font-weight:700; font-size:1rem; cursor:pointer;
+    font-family:'Inter'; box-shadow:0 8px 20px rgba(214,69,91,0.35);
+    text-decoration:none; display:inline-block;
+  }
+  .btn-ghost{
+    background:transparent; color:#F7ECDF; border:1.5px solid rgba(247,236,223,0.4);
+    border-radius:14px; padding:14px 24px; font-weight:700; font-size:1rem;
+    cursor:pointer; font-family:'Inter'; text-decoration:none; display:inline-block;
+  }
+  .hero-meta{
+    display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;
+  }
+  .hero-meta div{font-size:.85rem; color:#C9B7A2;}
+  .hero-meta strong{display:block; font-family:'Baloo 2'; font-size:1.5rem; color:#FBF1E2; font-weight:700;}
+
+  .hero-art{
+    position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+  }
+
+  /* waffle svg styling handled inline */
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:80px 0;}
+  .section-head{max-width:640px; margin:0 auto 44px;}
+  .section-head .kicker{
+    color:var(--rasp); font-weight:700; font-size:.92rem; margin-bottom:10px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem); line-height:1.15;}
+  .section-head p{margin-top:14px; font-size:1.02rem; line-height:1.6; opacity:.78; max-width:52ch;}
+
+  /* ---------- MENU TABS ---------- */
+  .menu-tabs{
+    display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:34px;
+    scrollbar-width:none;
+  }
+  .menu-tabs::-webkit-scrollbar{display:none;}
+  .tab-btn{
+    flex:none;
+    background:var(--cream-card); border:1.5px solid var(--line); color:var(--dark);
+    padding:11px 20px; border-radius:999px; font-family:'Baloo 2'; font-weight:600;
+    font-size:.95rem; cursor:pointer; white-space:nowrap; transition:all .15s;
+  }
+  .tab-btn.active{
+    background:var(--dark); color:var(--cream); border-color:var(--dark);
+  }
+
+  .menu-panel{display:none;}
+  .menu-panel.active{display:block; animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+
+  .panel-note{
+    font-size:.92rem; opacity:.7; margin-bottom:20px; line-height:1.55;
+    border-left:3px solid var(--caramel); padding-left:12px;
+  }
+
+  .item-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;
+  }
+  .item-card{
+    background:var(--cream-card); border:1px solid var(--line); border-radius:18px;
+    padding:20px; box-shadow:var(--shadow);
+  }
+  .item-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px;}
+  .item-top h3{font-size:1.08rem; font-weight:600;}
+  .item-price{
+    font-family:'Baloo 2'; font-weight:700; color:var(--rasp); font-size:1.08rem; white-space:nowrap;
+  }
+  .item-weight{font-size:.78rem; opacity:.6; font-weight:600; margin-bottom:6px;}
+  .item-desc{font-size:.9rem; line-height:1.5; opacity:.8;}
+  .item-tag{
+    display:inline-block; margin-top:10px; font-size:.72rem; font-weight:700;
+    background:rgba(214,69,91,0.12); color:var(--rasp-deep); padding:3px 10px; border-radius:999px;
+  }
+  .item-tag.new{background:rgba(143,168,118,0.18); color:#5D7248;}
+
+  .extras-box{
+    margin-top:28px; background:rgba(198,135,74,0.12); border:1px dashed var(--caramel);
+    border-radius:16px; padding:18px 20px;
+  }
+  .extras-box h4{font-family:'Baloo 2'; font-size:1rem; margin-bottom:6px;}
+  .extras-box p{font-size:.9rem; line-height:1.55; opacity:.85; margin:4px 0;}
+
+  /* ---------- ABOUT / TEXTURE STRIP ---------- */
+  .strip{
+    background:var(--dark); color:#F7ECDF; padding:60px 0;
+  }
+  .strip-inner{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;
+  }
+  .strip-inner div strong{
+    display:block; font-family:'Baloo 2'; font-size:1.9rem; color:var(--rasp);
+  }
+  .strip-inner div span{font-size:.85rem; color:#C9B7A2; margin-top:4px; display:block;}
+  @media (max-width:720px){ .strip-inner{grid-template-columns:repeat(2,1fr); row-gap:32px;} }
+
+  /* ---------- PROGRAM + LOCATION ---------- */
+  .split{
+    display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;
+  }
+  @media (max-width:820px){ .split{grid-template-columns:1fr;} }
+  .hours-card{
+    background:var(--cream-card); border:1px solid var(--line); border-radius:20px;
+    padding:30px; box-shadow:var(--shadow);
+  }
+  .hours-row{
+    display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--line);
+    font-size:.98rem;
+  }
+  .hours-row:last-child{border-bottom:none;}
+  .hours-row .d{font-weight:600;}
+  .hours-row .t{font-family:'Baloo 2'; font-weight:600; color:var(--rasp-deep);}
+
+  .find-us h3{font-size:1.4rem; margin-bottom:14px;}
+  .find-us p{font-size:.98rem; line-height:1.65; opacity:.82; margin-bottom:18px;}
+  .social-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .social-pill{
+    display:flex; align-items:center; gap:9px;
+    background:var(--cream-card); border:1px solid var(--line); border-radius:14px;
+    padding:12px 16px; font-weight:600; font-size:.92rem; text-decoration:none; color:var(--dark);
+    box-shadow:var(--shadow);
+  }
+  .social-pill .ic{width:18px; height:18px; flex:none;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--dark-2); color:#E4D3BF; padding:40px 0 28px; margin-top:0;
+  }
+  :root[data-theme="dark"] footer, :root:not([data-theme="light"]) footer{
+    @media (prefers-color-scheme: dark){ background:#150C08; }
+  }
+  footer .foot-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  footer .fbrand{font-family:'Baloo 2'; font-weight:700; font-size:1.05rem; color:#FBF1E2;}
+  footer p{font-size:.82rem; opacity:.65; margin:4px 0 0;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brandmark">
+      <svg class="bubbles" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="8" fill="#D6455B"/>
+        <circle cx="26" cy="9" r="6.5" fill="#C6874A"/>
+        <circle cx="12" cy="27" r="7" fill="#C6874A"/>
+        <circle cx="28" cy="26" r="8.5" fill="#D6455B"/>
+      </svg>
+      <span>Choco Kebab &amp; Bubble Waffles</span>
+    </div>
+    <nav class="links">
+      <a href="#meniu">Meniu</a>
+      <a href="#program">Program</a>
+      <a href="#gaseste-ne">Găsește-ne</a>
+    </nav>
+    <a href="#gaseste-ne" class="nav-cta">Vino la noi</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-bubbles" viewBox="0 0 1080 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#F7ECDF" stroke-opacity="0.12">
+      <circle cx="920" cy="90" r="28"/><circle cx="980" cy="150" r="16"/>
+      <circle cx="860" cy="180" r="14"/><circle cx="1010" cy="260" r="22"/>
+      <circle cx="30" cy="500" r="30"/><circle cx="90" cy="450" r="14"/>
+      <circle cx="70" cy="560" r="18"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow-tag"><span class="dot"></span> Ploiești, centru</span>
+      <h1>Dulciuri de stradă, făcute cald, servite <em>pe loc.</em></h1>
+      <p class="lead">Bubble waffles crocante, choco kebab cu de toate și gogoșele coapte — reteta noastră de bună dispoziție, chiar pe strada principală din Ploiești.</p>
+      <div class="hero-actions">
+        <a href="#meniu" class="btn-primary">Vezi meniul complet</a>
+        <a href="#gaseste-ne" class="btn-ghost">Cum ajung acolo</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>7</strong> zile / săptămână deschis</div>
+        <div><strong>30+</strong> combinații pe meniu</div>
+        <div><strong>0</strong> baie în ulei la gogoșele</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 320" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx="50%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#E7A15D"/>
+            <stop offset="100%" stop-color="#B36A32"/>
+          </radialGradient>
+        </defs>
+        <circle cx="160" cy="160" r="140" fill="url(#g1)"/>
+        <g fill="#7A3E1B" fill-opacity="0.35">
+          <circle cx="120" cy="100" r="13"/><circle cx="160" cy="90" r="15"/><circle cx="200" cy="105" r="12"/>
+          <circle cx="95" cy="140" r="11"/><circle cx="140" cy="135" r="16"/><circle cx="185" cy="140" r="14"/><circle cx="225" cy="150" r="10"/>
+          <circle cx="115" cy="175" r="14"/><circle cx="160" cy="180" r="17"/><circle cx="205" cy="178" r="13"/>
+          <circle cx="90" cy="205" r="10"/><circle cx="135" cy="215" r="15"/><circle cx="180" cy="215" r="13"/><circle cx="220" cy="205" r="11"/>
+          <circle cx="150" cy="250" r="12"/><circle cx="190" cy="248" r="10"/>
+        </g>
+        <path d="M60 210 Q160 320 260 210" stroke="#5A2E15" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <circle cx="220" cy="90" r="9" fill="#D6455B"/>
+        <circle cx="100" cy="240" r="7" fill="#D6455B"/>
+        <circle cx="240" cy="200" r="6" fill="#FBF1E2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-inner">
+    <div><strong>30</strong><span>lei choco kebab</span></div>
+    <div><strong>27</strong><span>lei waffle Nutella-Banane</span></div>
+    <div><strong>32</strong><span>lei mini gogoșele coapte</span></div>
+    <div><strong>44</strong><span>lei ediția Dubai</span></div>
+  </div>
+</section>
+
+<section class="section" id="meniu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Meniul nostru</span>
+      <h2>Alege-ți felul zilei.</h2>
+      <p>De la choco kebab înfășurat pe loc, până la vafe la bol cu topping-uri Dubai. Toate porțiile au greutatea și prețul trecute mai jos, ca să știi exact ce comanzi.</p>
+    </div>
+
+    <div class="menu-tabs" id="menuTabs">
+      <button class="tab-btn active" data-tab="kebab">Choco Kebab</button>
+      <button class="tab-btn" data-tab="gogosele">Gogoșele Coapte</button>
+      <button class="tab-btn" data-tab="waffles">Bubble Waffles</button>
+      <button class="tab-btn" data-tab="clatite">Clătite Uriașe</button>
+      <button class="tab-btn" data-tab="bol">Vafe la Bol</button>
+      <button class="tab-btn" data-tab="franjurate">Franjurate la Bol</button>
+      <button class="tab-btn" data-tab="pahar">Pahar cu Căpșuni</button>
+    </div>
+
+    <!-- CHOCO KEBAB -->
+    <div class="menu-panel active" data-panel="kebab">
+      <div class="item-grid">
+        <div class="item-card">
+          <div class="item-top"><h3>Choco Kebab</h3><span class="item-price">30 lei</span></div>
+          <div class="item-weight">230 g</div>
+          <div class="item-desc">Nutella, banane, Oreo, frișcă, fructe de pădure, ciocolată specială, 1 topping la alegere.</div>
+        </div>
+      </div>
+      <div class="extras-box">
+        <h4>Extra ingrediente — 5 lei</h4>
+        <p>Kinder Bueno, Oreo, Nutella, Marshmallow, Fructe, o cupă înghețată.</p>
+        <p><strong>Topping la alegere:</strong> ciocolată, caramel, caramel sărat, ciocolată albă, fructe, vanilie.</p>
+      </div>
+    </div>
+
+    <!-- GOGOSELE -->
+    <div class="menu-panel" data-panel="gogosele">
+      <p class="panel-note">Gogoșele coapte, fără baie în ulei. Ambele porții includ căpșuni, banane, 3 topping-uri și 3 decoruri.</p>
+      <div class="item-grid">
+        <div class="item-card">
+          <div class="item-top"><h3>Porție mică — 9 buc.</h3><span class="item-price">32 lei</span></div>
+          <div class="item-weight">320 g</div>
+          <div class="item-desc">Decoruri la alegere: Oreo, nucă, zahăr pudră, sprinkles, fulgi de cocos.</div>
+        </div>
+        <div class="item-card">
+          <div class="item-top"><h3>Porție mare — 15 buc.</h3><span class="item-price">39 lei</span></div>
+          <div class="item-weight">400 g</div>
+          <div class="item-desc">Decoruri la alegere: Oreo, nucă, zahăr pudră, sprinkles, fulgi de cocos.</div>
+        </div>
+        <div class="item-card">
+          <div class="item-top"><h3>Dubai — 15 buc.</h3><span class="item-price">44 lei</span></div>
+          <div class="item-weight">400 g</div>
+          <div class="item-desc">Banane, căpșuni, cremă de fistic, cataif, 1 topping la alegere.</div>
+          <span class="item-tag">Dubai</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUBBLE WAFFLES -->
+    <div class="menu-panel" data-panel="waffles">
+      <p class="panel-note">Toate variantele includ 1 topping la alegere.</p>
+      <div class="item-grid">
+        <div class="item-card"><div class="item-top"><h3>Nutella cu banane</h3><span class="item-price">27 lei</span></div><div class="item-weight">290 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella cu căpșuni / fructe de pădure</h3><span class="item-price">30 lei</span></div><div class="item-weight">280 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella, ciocolată albă și Oreo</h3><span class="item-price">29 lei</span></div><div class="item-weight">250 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella, banane și Oreo</h3><span class="item-price">31 lei</span></div><div class="item-weight">310 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella, căpșuni și Oreo</h3><span class="item-price">33 lei</span></div><div class="item-weight">310 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Marshmallow Waffle</h3><span class="item-price">33 lei</span></div><div class="item-weight">330 g</div><div class="item-desc">Nutella, banane, frișcă, marshmallow, sprinkles.</div></div>
+        <div class="item-card"><div class="item-top"><h3>M&amp;M's Waffle</h3><span class="item-price">33 lei</span></div><div class="item-weight">320 g</div><div class="item-desc">Nutella, banane, frișcă, M&amp;M's, sprinkles.</div></div>
+        <div class="item-card"><div class="item-top"><h3>Dubai Waffle</h3><span class="item-price">35 lei</span></div><div class="item-weight">290 g</div><div class="item-desc">Nutella, cremă de fistic, cataif, căpșuni.</div><span class="item-tag">Dubai</span></div>
+      </div>
+      <div class="extras-box">
+        <h4>Extra ingrediente — 5 lei</h4>
+        <p>Kinder Bueno, Oreo, Nutella, Marshmallow, Fructe, o cupă înghețată.</p>
+      </div>
+    </div>
+
+    <!-- CLATITE URIASE -->
+    <div class="menu-panel" data-panel="clatite">
+      <div class="item-grid">
+        <div class="item-card"><div class="item-top"><h3>Nutella și căpșuni</h3><span class="item-price">27 lei</span></div><div class="item-weight">260 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella, banane și Oreo</h3><span class="item-price">27 lei</span></div><div class="item-weight">280 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella, banane, fructe de pădure</h3><span class="item-price">28 lei</span></div><div class="item-weight">300 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Dubai</h3><span class="item-price">33 lei</span></div><div class="item-desc">Nutella, cremă de fistic, cataif, 1 topping, fistic granulat.</div><span class="item-tag">Dubai</span></div>
+        <div class="item-card"><div class="item-top"><h3>Dulceață (vișine / căpșuni)</h3><span class="item-price">20 lei</span></div><div class="item-weight">200 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Ciocolată albă</h3><span class="item-price">20 lei</span></div><div class="item-weight">200 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella</h3><span class="item-price">21 lei</span></div><div class="item-weight">200 g</div></div>
+        <div class="item-card"><div class="item-top"><h3>Nutella și banane</h3><span class="item-price">25 lei</span></div><div class="item-weight">260 g</div></div>
+      </div>
+    </div>
+
+    <!-- VAFE LA BOL -->
+    <div class="menu-panel" data-panel="bol">
+      <p class="panel-note">Vafă tăiată + Nutella sau ciocolată albă, banane, 1 topping la alegere — servite la bol.</p>
+      <div class="item-grid">
+        <div class="item-card"><div class="item-top"><h3>Bol Kinder Bueno</h3><span class="item-price">35 lei</span></div><div class="item-weight">450 g</div><div class="item-desc">Kinder Bueno adăugat peste vafă, Nutella / ciocolată albă, banane.</div></div>
+        <div class="item-card"><div class="item-top"><h3>Bol Fructe</h3><span class="item-price">37 lei</span></div><div class="item-weight">450 g</div><div class="item-desc">Fructe de pădure, Nutella / ciocolată albă, banane.</div></div>
+        <div class="item-card"><div class="item-top"><h3>Bol M&amp;M's</h3><span class="item-price">38 lei</span></div><div class="item-weight">450 g</div><div class="item-desc">M&amp;M's, sprinkles, Nutella / ciocolată albă, banane.</div></div>
+        <div class="item-card"><div class="item-top"><h3>Bol Dubai</h3><span class="item-price">40 lei</span></div><div class="item-weight">450 g</div><div class="item-desc">Căpșuni, cremă de fistic, cataif, Nutella / ciocolată albă.</div><span class="item-tag">Dubai</span></div>
+      </div>
+    </div>
+
+    <!-- FRANJURATE -->
+    <div class="menu-panel" data-panel="franjurate">
+      <p class="panel-note">Clătite franjurate la bol — crocante, pufoase, cu Nutella, ciocolată albă, căpșuni, banane sau fistic.</p>
+      <div class="item-grid">
+        <div class="item-card"><div class="item-top"><h3>Clasic</h3><span class="item-price">35 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Nutella, banane.</div><span class="item-tag new">Nou</span></div>
+        <div class="item-card"><div class="item-top"><h3>Forest</h3><span class="item-price">38 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Ciocolată albă, fructe de pădure.</div><span class="item-tag new">Nou</span></div>
+        <div class="item-card"><div class="item-top"><h3>Oreo</h3><span class="item-price">40 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Nutella, căpșuni, oreo crumbs.</div><span class="item-tag new">Nou</span></div>
+        <div class="item-card"><div class="item-top"><h3>Biscoff</h3><span class="item-price">40 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Nutella, banane, Biscoff.</div><span class="item-tag new">Nou</span></div>
+        <div class="item-card"><div class="item-top"><h3>Duo</h3><span class="item-price">40 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Ciocolată albă, cremă de fistic, căpșuni.</div><span class="item-tag new">Nou</span></div>
+        <div class="item-card"><div class="item-top"><h3>Dubai</h3><span class="item-price">42 lei</span></div><div class="item-weight">420 g</div><div class="item-desc">Nutella, cremă de fistic, căpșuni, cataif.</div><span class="item-tag">Dubai</span></div>
+      </div>
+    </div>
+
+    <!-- PAHAR CU CAPSUNI -->
+    <div class="menu-panel" data-panel="pahar">
+      <p class="panel-note">Căpșuni proaspete în strat cu ciocolată, servite la pahar.</p>
+      <div class="item-grid">
+        <div class="item-card"><div class="item-top"><h3>Clasic</h3><span class="item-price">30 lei</span></div><div class="item-desc">Căpșuni și ciocolată.</div></div>
+        <div class="item-card"><div class="item-top"><h3>Dubai</h3><span class="item-price">36 lei</span></div><div class="item-desc">Căpșuni, ciocolată, cremă de fistic, cataif.</div><span class="item-tag">Dubai</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="program" style="padding-top:0;">
+  <div class="wrap">
+    <div class="split">
+      <div class="hours-card">
+        <h3 style="font-size:1.3rem; margin-bottom:18px;">Program de funcționare</h3>
+        <div class="hours-row"><span class="d">Luni – Vineri</span><span class="t">11:00 – 20:00</span></div>
+        <div class="hours-row"><span class="d">Sâmbătă – Duminică</span><span class="t">11:00 – 20:30</span></div>
+      </div>
+      <div class="find-us" id="gaseste-ne">
+        <h3>Găsește-ne pe rețele</h3>
+        <p>Ne găsești în centrul Ploieștiului, lângă zona pietonală. Cea mai bună variantă ca să vezi meniul de sezon și noutățile — urmărește-ne online.</p>
+        <div class="social-row">
+          <a class="social-pill" href="#" onclick="return false;">
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2.2 1.7 3.8 4 4v3c-1.5 0-2.9-.4-4-1.2V14a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1a3 3 0 1 0 2 2.8V3h3Z"/></svg>
+            TikTok — Bubble Waffles Ploiesti
+          </a>
+          <a class="social-pill" href="#" onclick="return false;">
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5h1.6V4.3C16.3 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.2v2.3H7.5v3H10V21h3.5Z"/></svg>
+            Facebook — Choco Kebab &amp; Bubble Waffles
+          </a>
+          <a class="social-pill" href="#" onclick="return false;">
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm0 5.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6ZM16.9 6.9a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0ZM12 4.6c2.4 0 2.7 0 3.6.05.9.04 1.5.18 2 .38.5.2.9.45 1.3.85.4.4.65.8.85 1.3.2.5.34 1.1.38 2 .05.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.04.9-.18 1.5-.38 2-.2.5-.45.9-.85 1.3-.4.4-.8.65-1.3.85-.5.2-1.1.34-2 .38-.9.05-1.2.05-3.6.05s-2.7 0-3.6-.05c-.9-.04-1.5-.18-2-.38-.5-.2-.9-.45-1.3-.85-.4-.4-.65-.8-.85-1.3-.2-.5-.34-1.1-.38-2C4.6 14.7 4.6 14.4 4.6 12s0-2.7.05-3.6c.04-.9.18-1.5.38-2 .2-.5.45-.9.85-1.3.4-.4.8-.65 1.3-.85.5-.2 1.1-.34 2-.38C9.3 4.6 9.6 4.6 12 4.6Z"/></svg>
+            Instagram — Bubblewafflesploiesti
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="fbrand">Choco Kebab &amp; Bubble Waffles — Ploiești</div>
+    <p>Meniu și prețuri orientative, valabile la stand.</p>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('.menu-panel[data-panel="'+btn.dataset.tab+'"]').classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
